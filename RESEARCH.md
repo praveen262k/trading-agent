@@ -1,0 +1,53 @@
+Multi-Leg Options Strategies Around Earnings
+
+When trading options into an earnings announcement, similar price moves can produce very different P/L depending on volatility and strike choices. Several factors explain this variance:
+	•	Implied Volatility (IV) and “IV Crush.”  Options tend to trade at elevated IV before earnings, reflecting uncertainty. After the report, uncertainty typically evaporates and IV drops sharply – a phenomenon known as an “IV crush”.  A sudden fall in IV removes extrinsic value from options.  Thus short-volatility trades (like iron condors or short straddles) can profit handsomely if the stock stays in range, since the sold premium decays as IV collapses.  Conversely, long-volatility trades (long straddles/strangles) suffer: even if the stock moves as expected, the drop in IV can shrink the option’s value, potentially causing a loss.  (In other words, buying options into a high-IV situation requires an outsized move just to break even.)
+	•	Market-Priced Expected Move vs. Actual Move.  The options market effectively sets an “expected move” for the stock around earnings, typically computed as the cost of an ATM straddle (call+put) for the expiration right after the report.  For example, if a $100 stock has a $6.50 call and $6.50 put (ATM) for that expiration, the market is implying about a ±$6.50 move.  If the actual post-earnings move stays within this implied range, short premium strategies tend to win; if it moves beyond that range, long premium strategies win.  It’s not the absolute move size that matters most, but whether the move is large or small relative to what the market has priced in.
+	•	Historical vs. Implied Moves.  Comparing the current expected move to historical post-earnings moves can give insight.  If implied volatility suggests a much larger move than has historically occurred (e.g. market expects ±10% but the stock usually moves only 4–5%), the market may be overestimating risk and a short premium stance has an edge.  If implied move is smaller than typical historical moves, options may be underpriced and long-volatility trades could succeed.  In fact, one study found the options market usually predicts the magnitude of earnings moves fairly well on average, but there are many outliers – precisely the cases where this mismatch occurs.
+	•	Strike Placement and Breakevens.  How you set your strikes relative to the expected move is critical.  Narrow strikes (inside or near the implied range) collect more premium but are more likely to be “breached” by an average move, wiping out profit.  Wide strikes (outside the implied range) reduce breach risk but also limit how much premium you collect.  For example, selling a 10% OTM call/put pair on a stock with a 6% expected move might sound safe, but if the stock actually jumps 8–9%, that strategy would be hurt even though the move “felt” similar to a ±6% expectation.  In practice, traders often place short strikes right at or just outside the expected move level, then buy wings a few percent further out to define risk ￼.
+	•	Volatility Skew and Direction.  Equity options exhibit a volatility skew: OTM puts typically have higher IV than OTM calls.  This reflects greater demand for downside protection.  In earnings trades, this skew means a downward surprise can have a different impact than an upward one of the same magnitude.  For instance, if a big drop occurs, the rich put side may see a larger IV drop or price move.  Traders should note which side of the market (puts or calls) is “rich” in IV and consider that if the stock moves in that direction, the IV crush (and extrinsic decay) will be more pronounced on that side.
+	•	Post-Earnings Gaps.  Because earnings often occur outside market hours, stocks can gap significantly on the open.  Short-premium strategies must account for this risk: even if the eventual move is moderate, a sharp overnight gap can blow past strikes before you can adjust, leading to large losses.  Long-premium trades likewise face this gap risk.  In all cases, limited liquidity in after-hours options and wider spreads mean adjustments may be costly.
+
+Pre-Earnings Workflow
+
+A systematic process can help decide when (and how) to trade earnings with options:
+	1.	Estimate the Market’s Expected Move.  Build or look up the ATM straddle (call+put) price for the expiration immediately after earnings.  This sum (in dollars) approximates the one-sided move.  For example, a $100 stock with a $3 ATM call and $3 put implies about a ±$6 expected move (6%).  (Some tools display this as a “Market Maker Move” or MMM.)
+	2.	Compare to Historical Earnings Moves.  Compute the stock’s past N earnings-day moves (e.g. last 8 quarters).  Calculate the median or average move (in dollars and percent).  - If the current expected move is much larger than historical moves, it suggests the options market is overestimating risk; short-premium strategies gain an edge.  - If the expected move is much smaller than typical historical moves, the market may be underpricing risk, favoring long-premium strategies.
+	3.	Assess Current IV Levels (IV Rank/Percentile).  Check where the current IV sits in its historical range.  An IV Rank (or percentile) above ~70–80% means implied vol is unusually high.  In that case, one expects a significant IV drop after earnings, which benefits option sellers.  Conversely, if IV rank is very low (<30%), options are relatively cheap and may not have much further to fall; buying premium might be advantageous (as any surprise could send IV higher).  In practice, traders often view IV rank above 50% as a signal to consider selling volatility, and below 50% as a sign to consider buying.
+	4.	Plan Strike Placement and Strategy.  Based on the above, choose a multi-leg structure and strikes:
+	•	Short Iron Condor/Strangle (Sell Premium): If analysis favors selling, set the short strikes near the expected move.  For example, sell a call at stock+expected move and a put at stock−expected move.  Collect premium and buy further-out wings to cap risk (e.g. another 2–5% beyond each short).  This maximizes credit while giving a cushion around the expected range.  The resulting breakevens will be just beyond those short strikes ￼.
+	•	Iron Butterfly:  This is a variant where you sell an ATM straddle and buy equidistant wings.  It yields a larger credit (since ATM options are expensive) but a narrower profit zone.  It is most appropriate when you’re very confident the stock will stay near the center price and IV will drop.
+	•	Long Straddle/Strangle (Buy Premium):  If you expect a big move and IV is low, consider buying the ATM straddle or an appropriately OTM strangle.  For instance, with a ±$6 expected move, one might buy a $94 put and $106 call on a $100 stock.  Breakevens become 122 and 88 (strikes ± total premium).  This position profits only if the stock moves far enough (beyond breakeven) or IV jumps sharply.  Note that because IV often falls after earnings, you typically need a larger move to offset that loss of time value.
+	5.	Position Sizing and Breach Probability.  Estimate the chance of a short strike being hit by using option delta.  A short strike with |delta|≈20 has about a 20% probability of finishing in-the-money (i.e. being breached).  If you want to limit risk, you might only use strikes with deltas under 15–20.  Higher delta means higher risk of breach.  Size your position so that a max loss on either side is acceptable.  Always have a plan: know your worst-case loss if the stock moves beyond your wings, and consider exit or adjustment rules if the trade goes against you.
+
+Example Rule-of-Thumb
+	•	Short Premium (e.g. Iron Condor/Strangle): Favored when expected move is ≥ historical move and IV rank is high.  In this scenario the market has likely overestimated post-earnings movement and you can profit from the IV collapse.
+	•	Long Premium (e.g. Straddle/Strangle): Favored when expected move is < historical move and IV rank is low.  Here the market may be underestimating risk, so if you foresee a surprise or volatility spike, buying premium could pay off.
+	•	Otherwise – Sit Out: If neither side looks compelling (e.g. expected move ≈ historical and IV not extreme), skipping the trade is often the safest “strategy”.
+
+Implementation Notes
+
+In a practical system, you could automate this analysis:
+	•	Data Collection: Use sources like yfinance, Polygon.io, ORATS, or a brokerage API to fetch: current stock price; upcoming earnings dates; option chain for the expiration after earnings (including ATM call/put prices and IVs); historical stock prices around past earnings.
+	•	Calculations: Compute Expected Move = ATM_call + ATM_put. Compute Historical Move (e.g. median % move times current price). Determine IV Rank/Percentile over the past year.
+	•	Decision Logic: Encode the rules above. For example, in code you might say:
+
+    ```
+
+    if expected_move > historical_move and iv_rank > 50%: 
+        strategy = "Short Premium (e.g. Iron Condor)"
+    elif expected_move < historical_move and iv_rank < 50%: 
+        strategy = "Long Premium (e.g. Straddle)"
+    else: 
+        strategy = "No Trade"
+
+    ```
+
+    Strike Suggestions: If short, suggest short strikes ≈ current_price ± expected_move, with long wings a few percent further out. If long, suggest buying ATM or strangle strikes guided by expected move.
+	•	Tools and Robustness: Implement error handling (e.g. if Polygon API fails, fall back to yfinance). Use environment variables for API keys (POLYGON_API_KEY, etc.) and log all decisions.
+
+Conclusion
+
+Trading multi-leg strategies into earnings requires balancing volatility and range predictions. By explicitly estimating the market’s expected move (via option prices) and comparing it to historical moves, while also considering current IV levels, one can choose when to sell or buy volatility – or when to sit out. Short-volatility spreads like iron condors tend to work best when IV is rich and moves come in light, whereas long-straddles need both a large surprise and cheap IV. Careful strike placement and sizing (using delta for breach probability) complete the setup. In practice, skipping trades with ambiguous odds is often wiser than forcing a play – preserving capital can be the best “earnings strategy” of all.
+
+Sources: The above guidance is drawn from options research and analysis, including studies on implied vs. realized earnings moves and practical trading write-ups ￼. Each step is backed by the principles of volatility trading around major events.
